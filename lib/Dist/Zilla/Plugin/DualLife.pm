@@ -63,6 +63,12 @@ these issues will go away.
 
 =end :list
 
+=begin Pod::Coverage
+
+setup_installer
+
+=end Pod::Coverage
+
 =cut
 
 sub setup_installer {
