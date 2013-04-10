@@ -32,6 +32,12 @@ to:
 
     'INSTALLDIRS' => ($] >= 5.009005 && $] <= 5.011000 ? 'perl' : 'site'),
 
+If the module didn't enter core in 5.009005, set the C<entered_core>
+attribute appropriately:
+
+    [DualLife]
+    entered_core=5.006001
+
 =head1 ACHTUNG!
 
 =begin :list
@@ -71,6 +77,12 @@ setup_installer
 
 =cut
 
+has entered_core => (
+    is => 'ro',
+    isa => 'Str',
+    default => "5.009005",
+);
+
 sub setup_installer {
     my ($self) = @_;
 
@@ -79,10 +91,11 @@ sub setup_installer {
         unless $makefile;
 
     my $content = $makefile->content;
+    my $entered = $self->entered_core;
 
-    my $dual_life_args = <<'EOC';
-$WriteMakefileArgs{INSTALLDIRS} = 'perl'
-    if $] >= 5.009005 && $] <= 5.011000;
+    my $dual_life_args = <<"EOC";
+\$WriteMakefileArgs{INSTALLDIRS} = 'perl'
+    if \$] >= $entered && \$] <= 5.011000;
 
 EOC
 
