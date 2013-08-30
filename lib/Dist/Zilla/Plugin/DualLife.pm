@@ -75,6 +75,11 @@ setup_installer
 
 =end Pod::Coverage
 
+=attr entered_core
+
+Indicates when the distribution joined core.  Defaults to 5.009005 for
+all the things that came in for 5.10.
+
 =cut
 
 has entered_core => (
