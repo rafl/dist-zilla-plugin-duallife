@@ -1,3 +1,8 @@
+0.03   Fri, 30 Aug 2013 12:20:05 -0400
+  * Document entered_core (David Golden).
+  * Add support for distributions bundled with ExtUtils::MakeMaker
+    (David Golden).
+
 0.02   Wed, 10 Jul 2013 09:37:01 -0400
   * Make the version the module first entered the core configurable
     (David Golden).
